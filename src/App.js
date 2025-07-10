@@ -4,6 +4,7 @@ import InputPanel from './components/InputPanel';
 import VisualizationPanel from './components/VisualizationPanel';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { UnitProvider } from './contexts/UnitContext';
+import { AuthProvider } from './contexts/AuthContext';
 import { 
   calculateReactions, 
   calculateShearForce, 
@@ -129,25 +130,27 @@ function App() {
   return (
     <ThemeProvider>
       <UnitProvider>
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
-          <Header beamData={beamData} results={results} />
-          <div className="flex h-[calc(100vh-4rem)]">
-            <div className="w-96 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto transition-colors">
-              <InputPanel 
-                beamData={beamData} 
-                updateBeamData={updateBeamData}
-                resolution={resolution}
-                setResolution={setResolution}
-              />
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <VisualizationPanel 
-                beamData={beamData} 
-                results={results}
-              />
+        <AuthProvider>
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+            <Header beamData={beamData} results={results} updateBeamData={updateBeamData} />
+            <div className="flex h-[calc(100vh-4rem)]">
+              <div className="w-96 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto transition-colors">
+                <InputPanel 
+                  beamData={beamData} 
+                  updateBeamData={updateBeamData}
+                  resolution={resolution}
+                  setResolution={setResolution}
+                />
+              </div>
+              <div className="flex-1 overflow-hidden">
+                <VisualizationPanel 
+                  beamData={beamData} 
+                  results={results}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </AuthProvider>
       </UnitProvider>
     </ThemeProvider>
   );
