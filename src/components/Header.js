@@ -192,7 +192,6 @@ const Header = ({ beamData, results, updateBeamData }) => {
               onClick={() => setShowAboutModal(true)}
               className="btn-secondary text-sm"
             >
-              Save Project
               About
             </button>
           </div>
