@@ -84,7 +84,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
           <div className="flex items-center space-x-4">
             {/* Unit System Toggle */}
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-600 dark:text-gray-300">Units:</span>
+              <span className="text-sm text-gray-600 dark:text-gray-300"></span>
               <button
                 onClick={toggleUnitSystem}
                 className="flex items-center space-x-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors text-sm font-medium text-gray-700 dark:text-gray-200"
