@@ -95,12 +95,8 @@ const Header = ({ beamData, results, updateBeamData }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                 </svg>
               </button>
-            </div>
-
-            {/* Dark Mode Toggle */}
-            <button className="order-2 lg:order-none"
+              className="order-2 lg:order-none p-2 lg:p-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95"
               onClick={toggleDarkMode}
-              className="p-2 lg:p-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95"
               title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
               {isDarkMode ? (
@@ -206,10 +202,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
             )}
             
             <button 
-              onClick={handleExportResults}
-              disabled={isExporting} 
-              className="lg:hidden btn-secondary text-sm flex items-center space-x-1 order-5 min-w-0"
-            >
+              className="order-6 lg:order-none btn-secondary text-sm px-3 py-2 lg:py-3 min-w-0"
               {isExporting ? (
                 <>
                   <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,7 +222,6 @@ const Header = ({ beamData, results, updateBeamData }) => {
             
             <button className="order-6 lg:order-none"
               onClick={() => setShowAboutModal(true)}
-              className="btn-secondary text-sm px-3 py-2 lg:py-3 min-w-0"
             >
               <span className="hidden lg:inline">About</span>
               <svg className="w-4 h-4 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">

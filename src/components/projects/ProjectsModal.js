@@ -13,7 +13,7 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
     if (isOpen && user) {
       loadProjects();
     }
-  }, [isOpen, user]);
+  }, [isOpen, user, loadProjects]);
 
   const loadProjects = async () => {
     setLoading(true);

@@ -451,7 +451,7 @@ const BeamDiagram = ({ beamData, results }) => {
 
   useEffect(() => {
     drawBeam();
-  }, [drawBeam]);
+  }, [beamData, isDarkMode, convertValue, getUnit, drawSupport, drawPointLoad, drawDistributedLoad, drawMoment, drawDimensions]);
 
   return (
     <div className="space-y-6">
