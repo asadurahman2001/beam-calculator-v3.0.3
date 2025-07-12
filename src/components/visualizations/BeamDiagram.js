@@ -447,7 +447,7 @@ const BeamDiagram = ({ beamData, results }) => {
 
     // Draw dimensions
     drawDimensions(ctx, margin, beamY + 60, displayLength * scale, beamData);
-  }, [beamData, results, isDarkMode, convertValue, getUnit, drawSupport, drawPointLoad, drawDistributedLoad, drawMoment, drawDimensions]);
+  }, [beamData, convertValue, drawSupport, drawPointLoad, drawDistributedLoad, drawMoment, drawDimensions]);
 
   useEffect(() => {
     drawBeam();

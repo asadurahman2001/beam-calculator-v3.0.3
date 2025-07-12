@@ -12,8 +12,7 @@ import {
 } from 'chart.js';
 import { Line, Scatter } from 'react-chartjs-2';
 import { useUnits } from '../../contexts/UnitContext';
-import { useTheme } from '../../contexts/ThemeContext';
-import annotationPlugin from 'chartjs-plugin-annotation';
+} from 'chart.js';
 
 ChartJS.register(
   CategoryScale,

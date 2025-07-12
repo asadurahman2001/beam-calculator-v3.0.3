@@ -9,13 +9,7 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const { user } = useAuth();
 
-  useEffect(() => {
-    if (isOpen && user) {
-      loadProjects();
-    }
-  }, [isOpen, user, loadProjects]);
-
-  const loadProjects = async () => {
+  const loadProjects = useCallback(async () => {
     setLoading(true);
     setError('');
     
@@ -31,7 +25,12 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
+
+  useEffect(() => {
+    if (isOpen && user) {
+      loadProjects();
+    }
 
   const handleLoadProject = async (projectId) => {
     try {
