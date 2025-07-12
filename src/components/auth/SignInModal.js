@@ -68,13 +68,13 @@ const SignInModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 lg:p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden modal-mobile lg:modal-enter">
         {/* Header */}
-        <div className="relative bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-8 text-white">
+        <div className="relative bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-6 lg:py-8 text-white">
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors p-1"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -102,7 +102,7 @@ const SignInModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Form */}
-        <div className="px-6 py-8">
+        <div className="px-6 py-6 lg:py-8 max-h-[60vh] lg:max-h-none overflow-y-auto mobile-scroll">
           {error && (
             <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
               <div className="flex items-center">
@@ -181,7 +181,7 @@ const SignInModal = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn-primary py-3 text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full btn-primary py-3 lg:py-3 text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <div className="flex items-center justify-center">
@@ -198,7 +198,7 @@ const SignInModal = ({ isOpen, onClose }) => {
           </form>
 
           {/* Footer Links */}
-          <div className="mt-6 space-y-3">
+          <div className="mt-6 space-y-3 pb-4 lg:pb-0">
             {!showForgotPassword && (
               <>
                 <div className="text-center">

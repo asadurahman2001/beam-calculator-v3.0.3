@@ -192,10 +192,10 @@ const DiagramCharts = ({ beamData, results }) => {
     <div className="space-y-6">
       {/* Summary Cards */}
       {maxValues && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="card bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
             <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">Maximum Shear Force</h4>
-            <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+            <div className="text-xl lg:text-2xl font-bold text-blue-700 dark:text-blue-300">
               {Math.abs(maxValues.maxShear.value).toFixed(2)} {getUnit('force')}
             </div>
             <div className="text-sm text-blue-600 dark:text-blue-400">
@@ -204,7 +204,7 @@ const DiagramCharts = ({ beamData, results }) => {
           </div>
           <div className="card bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800">
             <h4 className="font-semibold text-green-900 dark:text-green-200 mb-2">Maximum Bending Moment</h4>
-            <div className="text-2xl font-bold text-green-700 dark:text-green-300">
+            <div className="text-xl lg:text-2xl font-bold text-green-700 dark:text-green-300">
               {Math.abs(maxValues.maxMoment.value).toFixed(2)} {getUnit('moment')}
             </div>
             <div className="text-sm text-green-600 dark:text-green-400">
@@ -213,7 +213,7 @@ const DiagramCharts = ({ beamData, results }) => {
           </div>
           <div className="card bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800">
             <h4 className="font-semibold text-red-900 dark:text-red-200 mb-2">Maximum Deflection</h4>
-            <div className="text-2xl font-bold text-red-700 dark:text-red-300">
+            <div className="text-xl lg:text-2xl font-bold text-red-700 dark:text-red-300">
               {Math.abs(maxValues.maxDeflection.value).toFixed(2)} {getUnit('deflection')}
             </div>
             <div className="text-sm text-red-600 dark:text-red-400">
@@ -226,7 +226,7 @@ const DiagramCharts = ({ beamData, results }) => {
       {/* Shear Force Diagram */}
       <div className="card">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Shear Force Diagram (SFD)</h3>
-        <div className="h-64">
+        <div className="h-48 lg:h-64">
           {results.shearForce.x.length > 0 ? (
             <Line 
               key={`sfd-${chartKey}`}
@@ -250,7 +250,7 @@ const DiagramCharts = ({ beamData, results }) => {
       {/* Bending Moment Diagram */}
       <div className="card">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Bending Moment Diagram (BMD)</h3>
-        <div className="h-64">
+        <div className="h-48 lg:h-64">
           {results.bendingMoment.x.length > 0 ? (
             <Line 
               key={`bmd-${chartKey}`}
@@ -274,7 +274,7 @@ const DiagramCharts = ({ beamData, results }) => {
       {/* Deflection Diagram */}
       <div className="card">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Deflection Diagram</h3>
-        <div className="h-64">
+        <div className="h-48 lg:h-64">
           {results.deflection.x.length > 0 ? (
             <Line 
               key={`deflection-${chartKey}`}

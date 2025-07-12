@@ -131,10 +131,10 @@ function App() {
     <ThemeProvider>
       <UnitProvider>
         <AuthProvider>
-          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors mobile-safe-area">
             <Header beamData={beamData} results={results} updateBeamData={updateBeamData} />
-            <div className="flex h-[calc(100vh-4rem)]">
-              <div className="w-96 border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto transition-colors">
+            <div className="flex flex-col lg:flex-row h-[calc(100vh-4rem)]">
+              <div className="w-full lg:w-96 border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-y-auto transition-colors mobile-scroll">
                 <InputPanel 
                   beamData={beamData} 
                   updateBeamData={updateBeamData}
@@ -142,7 +142,7 @@ function App() {
                   setResolution={setResolution}
                 />
               </div>
-              <div className="flex-1 overflow-hidden">
+              <div className="flex-1 overflow-hidden mobile-scroll">
                 <VisualizationPanel 
                   beamData={beamData} 
                   results={results}

@@ -93,12 +93,12 @@ const InputPanel = ({ beamData, updateBeamData, resolution, setResolution }) => 
     return (
       <div className="h-full flex flex-col">
         {/* Header with Layout Toggle */}
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="p-4 lg:p-4 border-b border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Beam Configuration</h2>
             <button
               onClick={() => setLayoutMode('tabs')}
-              className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+              className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors lg:block hidden"
               title="Switch to Tab Layout"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,7 +203,7 @@ const InputPanel = ({ beamData, updateBeamData, resolution, setResolution }) => 
           <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Beam Configuration</h2>
           <button
             onClick={() => setLayoutMode('accordion')}
-            className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+            className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors lg:block hidden"
             title="Switch to Accordion Layout"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,7 +225,7 @@ const InputPanel = ({ beamData, updateBeamData, resolution, setResolution }) => 
         </div>
       </div>
       
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="flex-1 overflow-y-auto p-4 mobile-scroll">
         <div className="animate-fade-in">
           {renderTabContent()}
         </div>

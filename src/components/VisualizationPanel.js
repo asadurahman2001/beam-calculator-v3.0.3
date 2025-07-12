@@ -35,36 +35,37 @@ const VisualizationPanel = ({ beamData, results }) => {
 
   return (
     <div className="h-full flex flex-col bg-white dark:bg-gray-800 transition-colors">
-      <div className="border-b border-gray-200 dark:border-gray-700 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex space-x-1">
+      <div className="border-b border-gray-200 dark:border-gray-700 px-4 lg:px-6 py-4">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="flex space-x-1 overflow-x-auto mobile-scroll">
             {views.map((view) => (
               <button
                 key={view.id}
                 onClick={() => setActiveView(view.id)}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                className={`px-3 lg:px-4 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${
                   activeView === view.id
                     ? 'bg-primary-600 text-white'
                     : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
-                <span className="mr-2">{view.icon}</span>
-                {view.label}
+                <span className="mr-1 lg:mr-2">{view.icon}</span>
+                <span className="hidden sm:inline lg:inline">{view.label}</span>
+                <span className="sm:hidden lg:hidden">{view.label.split(' ')[0]}</span>
               </button>
             ))}
           </div>
           
-          <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex items-center space-x-2 text-xs lg:text-sm text-gray-500 dark:text-gray-400 overflow-x-auto">
             <span>Beam Length: {displayLength.toFixed(2)} {getUnit('length')}</span>
-            <span>•</span>
+            <span className="hidden sm:inline">•</span>
             <span>Supports: {beamData.supports.length}</span>
-            <span>•</span>
+            <span className="hidden sm:inline">•</span>
             <span>Loads: {beamData.pointLoads.length + beamData.distributedLoads.length}</span>
           </div>
         </div>
       </div>
 
-      <div className="flex-1 overflow-auto p-6">
+      <div className="flex-1 overflow-auto p-4 lg:p-6 mobile-scroll">
         <div className="animate-fade-in">
           {renderContent()}
         </div>

@@ -62,23 +62,23 @@ const SaveProjectModal = ({ isOpen, onClose, beamData, existingProject = null })
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 lg:p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-2xl shadow-2xl w-full max-w-md modal-mobile lg:modal-enter">
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4 text-white rounded-t-2xl">
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-4 lg:px-6 py-4 text-white rounded-t-2xl lg:rounded-t-2xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
               </svg>
-              <h2 className="text-xl font-bold">
+              <h2 className="text-lg lg:text-xl font-bold">
                 {existingProject ? 'Update Project' : 'Save Project'}
               </h2>
             </div>
             <button
               onClick={handleClose}
               disabled={loading}
-              className="text-white hover:text-gray-200 transition-colors disabled:opacity-50"
+              className="text-white hover:text-gray-200 transition-colors disabled:opacity-50 p-1"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -88,7 +88,7 @@ const SaveProjectModal = ({ isOpen, onClose, beamData, existingProject = null })
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 lg:p-6 max-h-[70vh] lg:max-h-none overflow-y-auto mobile-scroll">
           {success ? (
             <div className="text-center py-8">
               <div className="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -152,7 +152,7 @@ const SaveProjectModal = ({ isOpen, onClose, beamData, existingProject = null })
                 {/* Project Summary */}
                 <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
                   <h4 className="font-medium text-gray-900 dark:text-white mb-2">Project Summary</h4>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1 grid grid-cols-2 gap-2">
                     <div>Beam Length: {beamData.length} m</div>
                     <div>Supports: {beamData.supports?.length || 0}</div>
                     <div>Point Loads: {beamData.pointLoads?.length || 0}</div>
@@ -161,7 +161,7 @@ const SaveProjectModal = ({ isOpen, onClose, beamData, existingProject = null })
                   </div>
                 </div>
 
-                <div className="flex space-x-3 pt-4">
+                <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4">
                   <button
                     type="button"
                     onClick={handleClose}

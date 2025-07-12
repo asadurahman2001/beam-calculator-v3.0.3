@@ -74,20 +74,20 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[80vh] overflow-hidden">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 lg:p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl lg:rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] lg:max-h-[80vh] overflow-hidden modal-mobile lg:modal-enter">
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4 text-white">
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-4 lg:px-6 py-4 text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
-              <h2 className="text-xl font-bold">My Projects</h2>
+              <h2 className="text-lg lg:text-xl font-bold">My Projects</h2>
             </div>
             <button
               onClick={onClose}
-              className="text-white hover:text-gray-200 transition-colors"
+              className="text-white hover:text-gray-200 transition-colors p-1"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -97,7 +97,7 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[calc(80vh-80px)]">
+        <div className="p-4 lg:p-6 overflow-y-auto max-h-[calc(90vh-80px)] lg:max-h-[calc(80vh-80px)] mobile-scroll">
           {error && (
             <div className="mb-4 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
               <div className="flex items-center">
@@ -130,7 +130,7 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {projects.map((project) => (
                 <div key={project.id} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:shadow-md transition-shadow">
                   <div className="flex items-start justify-between mb-3">
@@ -144,10 +144,10 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
                         </p>
                       )}
                     </div>
-                    <div className="flex items-center space-x-1 ml-2">
+                    <div className="flex items-center space-x-1 ml-2 flex-shrink-0">
                       <button
                         onClick={() => handleLoadProject(project.id)}
-                        className="p-1.5 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/20 rounded transition-colors"
+                        className="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/20 rounded transition-colors"
                         title="Load Project"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
                       </button>
                       <button
                         onClick={() => setDeleteConfirm(project.id)}
-                        className="p-1.5 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/20 rounded transition-colors"
+                        className="p-2 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/20 rounded transition-colors"
                         title="Delete Project"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
                     <div>Created: {formatDate(project.created_at)}</div>
                     <div>Updated: {formatDate(project.updated_at)}</div>
                     {project.beam_data && (
-                      <div className="flex items-center space-x-4 mt-2 pt-2 border-t border-gray-200 dark:border-gray-600">
+                      <div className="flex flex-wrap items-center gap-2 lg:gap-4 mt-2 pt-2 border-t border-gray-200 dark:border-gray-600 text-xs lg:text-xs">
                         <span>Length: {project.beam_data.length}m</span>
                         <span>Supports: {project.beam_data.supports?.length || 0}</span>
                         <span>Loads: {(project.beam_data.pointLoads?.length || 0) + (project.beam_data.distributedLoads?.length || 0)}</span>
@@ -186,7 +186,7 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
         {/* Delete Confirmation Modal */}
         {deleteConfirm && (
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-sm mx-4">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-sm mx-4 modal-enter">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Delete Project
               </h3>
