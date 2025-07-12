@@ -12,7 +12,7 @@ import {
 } from 'chart.js';
 import { Line, Scatter } from 'react-chartjs-2';
 import { useUnits } from '../../contexts/UnitContext';
-} from 'chart.js';
+import { useTheme } from '../../contexts/ThemeContext';
 
 ChartJS.register(
   CategoryScale,

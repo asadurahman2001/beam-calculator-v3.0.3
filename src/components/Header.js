@@ -94,7 +94,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
                 <svg className="w-3 h-3 lg:w-4 lg:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                 </svg>
-              </button>
+            <button
               className="order-2 lg:order-none p-2 lg:p-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95"
               onClick={toggleDarkMode}
               title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
@@ -203,6 +203,9 @@ const Header = ({ beamData, results, updateBeamData }) => {
             
             <button 
               className="order-6 lg:order-none btn-secondary text-sm px-3 py-2 lg:py-3 min-w-0"
+              onClick={handleExportResults}
+              disabled={isExporting}
+            >
               {isExporting ? (
                 <>
                   <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,7 +223,8 @@ const Header = ({ beamData, results, updateBeamData }) => {
               )}
             </button>
             
-            <button className="order-6 lg:order-none"
+            <button 
+              className="order-6 lg:order-none btn-secondary text-sm px-3 py-2 lg:py-3 min-w-0"
               onClick={() => setShowAboutModal(true)}
             >
               <span className="hidden lg:inline">About</span>
