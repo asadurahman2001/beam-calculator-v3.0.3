@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { getUserProjects, deleteProject, getProject } from '../../lib/supabase';
 
@@ -31,6 +31,8 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
     if (isOpen && user) {
       loadProjects();
     }
+  }, [isOpen, user, loadProjects]);
+  )
 
   const handleLoadProject = async (projectId) => {
     try {
