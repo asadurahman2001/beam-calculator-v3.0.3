@@ -32,7 +32,6 @@ const ProjectsModal = ({ isOpen, onClose, onLoadProject }) => {
       loadProjects();
     }
   }, [isOpen, user, loadProjects]);
-  )
 
   const handleLoadProject = async (projectId) => {
     try {
