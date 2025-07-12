@@ -456,13 +456,20 @@ const BeamDiagram = ({ beamData, results }) => {
   return (
     <div className="space-y-6">
       <div className="card">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Beam Diagram</h3>
-        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+        <div className="flex items-center mb-4">
+          <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white">Beam Diagram</h3>
+        </div>
+        <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-600 rounded-xl p-4 lg:p-6 border border-gray-200 dark:border-gray-600">
           <canvas
             ref={canvasRef}
             width={800}
-            height={300}
-            className="w-full h-auto border border-gray-200 dark:border-gray-600 rounded"
+            height={350}
+            className="w-full h-auto border border-gray-200 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 shadow-sm"
             id="beam-diagram-canvas"
           />
         </div>
@@ -470,8 +477,15 @@ const BeamDiagram = ({ beamData, results }) => {
 
       {results.reactions.length > 0 && (
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Reaction Forces</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex items-center mb-4">
+            <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white">Reaction Forces</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
             {results.reactions.map((reaction, index) => {
               const support = beamData.supports.find(s => s.position === reaction.position);
               const displayPos = convertValue(reaction.position, 'length', 'SI');
@@ -479,22 +493,22 @@ const BeamDiagram = ({ beamData, results }) => {
               const displayMoment = reaction.moment !== undefined ? convertValue(reaction.moment, 'moment', 'SI') : undefined;
               
               return (
-                <div key={index} className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                <div key={index} className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 lg:p-5 card-hover">
                   <div className="flex items-center justify-between">
-                    <span className="font-medium text-blue-900 dark:text-blue-200">
+                    <span className="font-bold text-blue-900 dark:text-blue-200 text-sm lg:text-base">
                       {support?.type === 'Internal Hinge' ? 'Internal Hinge' : 'Support'} at {displayPos.toFixed(2)} {getUnit('length')}
                     </span>
-                    <span className="text-blue-700 dark:text-blue-300">
+                    <span className="text-blue-700 dark:text-blue-300 font-bold text-sm lg:text-base">
                       {Math.abs(displayForce).toFixed(2)} {getUnit('force')} {reaction.force < 0 ? '↓' : '↑'}
                     </span>
                   </div>
                   {displayMoment !== undefined && (
-                    <div className="mt-2 text-sm text-blue-700 dark:text-blue-300">
-                      Moment: {Math.abs(displayMoment).toFixed(2)} {getUnit('moment')} {reaction.moment > 0 ? '↻' : '↺'}
+                    <div className="mt-2 text-xs lg:text-sm text-blue-700 dark:text-blue-300 font-medium">
+                      <span className="font-bold">Moment:</span> {Math.abs(displayMoment).toFixed(2)} {getUnit('moment')} {reaction.moment > 0 ? '↻' : '↺'}
                     </div>
                   )}
                   {support?.type === 'Internal Hinge' && (
-                    <div className="mt-2 text-xs text-yellow-700 dark:text-yellow-300 bg-yellow-100 dark:bg-yellow-900/20 px-2 py-1 rounded">
+                    <div className="mt-2 text-xs text-yellow-700 dark:text-yellow-300 bg-yellow-100 dark:bg-yellow-900/20 px-2 py-1 rounded-lg font-medium">
                       Internal hinge: Moment = 0 (releases moment)
                     </div>
                   )}

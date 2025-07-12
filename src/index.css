@@ -27,45 +27,45 @@
 
 @layer components {
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors;
+    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 lg:p-6 transition-all duration-200 hover:shadow-xl;
   }
   
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-base;
+    @apply w-full px-4 py-3 lg:py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-base shadow-sm focus:shadow-md;
     /* Ensure minimum touch target size */
-    min-height: 44px;
+    min-height: 48px;
   }
   
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white px-4 py-3 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800;
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 active:from-primary-800 active:to-primary-900 text-white px-4 py-3 lg:py-3 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95;
     /* Ensure minimum touch target size */
-    min-height: 44px;
+    min-height: 48px;
     /* Improve touch feedback */
     -webkit-tap-highlight-color: transparent;
   }
   
   .btn-secondary {
-    @apply bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 active:bg-gray-300 dark:active:bg-gray-500 text-gray-700 dark:text-gray-200 px-4 py-3 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800;
+    @apply bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 active:bg-gray-300 dark:active:bg-gray-500 text-gray-700 dark:text-gray-200 px-4 py-3 lg:py-3 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95;
     /* Ensure minimum touch target size */
-    min-height: 44px;
+    min-height: 48px;
     /* Improve touch feedback */
     -webkit-tap-highlight-color: transparent;
   }
   
   .tab-button {
-    @apply px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200;
+    @apply px-4 py-3 lg:py-3 text-sm font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95;
     /* Ensure minimum touch target size */
-    min-height: 44px;
+    min-height: 48px;
     /* Improve touch feedback */
     -webkit-tap-highlight-color: transparent;
   }
   
   .tab-button.active {
-    @apply bg-primary-600 text-white;
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg;
   }
   
   .tab-button.inactive {
-    @apply bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600;
+    @apply bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600;
   }
   
   /* Mobile-specific utilities */
@@ -81,6 +81,30 @@
   .mobile-scroll {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
+  }
+  
+  /* Modern card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+  }
+  
+  /* Floating action button */
+  .fab {
+    @apply fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center justify-center z-50 hover:scale-110 active:scale-95;
+  }
+  
+  /* Modern input focus states */
+  .input-modern {
+    @apply relative overflow-hidden;
+  }
+  
+  .input-modern::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 opacity-0 transition-opacity duration-300;
+  }
+  
+  .input-modern:focus-within::before {
+    @apply opacity-10;
   }
 }
 

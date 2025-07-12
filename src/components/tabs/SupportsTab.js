@@ -56,10 +56,13 @@ const SupportsTab = ({ beamData, updateBeamData }) => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-gray-900 dark:text-white">Support Configuration</h3>
+        <h3 className="text-base lg:text-lg font-bold text-gray-900 dark:text-white">Support Configuration</h3>
         {beamData.supports.length < getMaxSupports() && (
-          <button onClick={addSupport} className="btn-primary text-sm">
-            Add Support
+          <button onClick={addSupport} className="btn-primary text-sm flex items-center space-x-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            <span>Add Support</span>
           </button>
         )}
       </div>

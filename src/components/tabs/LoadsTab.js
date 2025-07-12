@@ -142,17 +142,19 @@ const LoadsTab = ({ beamData, updateBeamData }) => {
 
   return (
     <div className="space-y-6">
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 lg:space-x-3">
         <button
           onClick={() => setActiveLoadType('point')}
           className={`tab-button ${activeLoadType === 'point' ? 'active' : 'inactive'}`}
         >
+          <span className="mr-2">📍</span>
           Point Loads
         </button>
         <button
           onClick={() => setActiveLoadType('distributed')}
           className={`tab-button ${activeLoadType === 'distributed' ? 'active' : 'inactive'}`}
         >
+          <span className="mr-2">📊</span>
           Distributed Loads
         </button>
       </div>
@@ -160,8 +162,14 @@ const LoadsTab = ({ beamData, updateBeamData }) => {
       {activeLoadType === 'point' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-white">Point Loads</h3>
-            <button onClick={addPointLoad} className="btn-primary text-sm">
+            <h3 className="text-base lg:text-lg font-bold text-gray-900 dark:text-white">Point Loads</h3>
+            <button onClick={addPointLoad} className="btn-primary text-sm flex items-center space-x-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              <span>Add Load</span>
+            </button>
+          </div>
               Add Point Load
             </button>
           </div>

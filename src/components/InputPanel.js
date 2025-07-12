@@ -198,12 +198,12 @@ const InputPanel = ({ beamData, updateBeamData, resolution, setResolution }) => 
   return (
     <div className="h-full flex flex-col">
       {/* Header with Layout Toggle */}
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+      <div className="p-4 lg:p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-700">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Beam Configuration</h2>
+          <h2 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white">Beam Configuration</h2>
           <button
             onClick={() => setLayoutMode('accordion')}
-            className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors lg:block hidden"
+            className="p-2 lg:p-3 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-all duration-200 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-600 lg:block hidden"
             title="Switch to Accordion Layout"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -211,21 +211,21 @@ const InputPanel = ({ beamData, updateBeamData, resolution, setResolution }) => 
             </svg>
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2 lg:gap-3">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`tab-button ${activeTab === tab.id ? 'active' : 'inactive'}`}
             >
-              <span className="mr-2">{tab.icon}</span>
-              {tab.label}
+              <span className="mr-2 text-base">{tab.icon}</span>
+              <span className="text-sm lg:text-base">{tab.label}</span>
             </button>
           ))}
         </div>
       </div>
       
-      <div className="flex-1 overflow-y-auto p-4 mobile-scroll">
+      <div className="flex-1 overflow-y-auto p-4 lg:p-6 mobile-scroll bg-gray-50 dark:bg-gray-900">
         <div className="animate-fade-in">
           {renderTabContent()}
         </div>

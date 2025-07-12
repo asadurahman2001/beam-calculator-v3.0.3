@@ -68,26 +68,26 @@ const Header = ({ beamData, results, updateBeamData }) => {
 
   return (
     <>
-      <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 lg:px-6 py-4 transition-colors mobile-header">
+      <header className="bg-gradient-to-r from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 border-b border-gray-200 dark:border-gray-700 px-4 lg:px-6 py-4 transition-all duration-200 mobile-header shadow-sm">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center space-x-3 min-w-0 flex-1 lg:flex-none">
-            <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
             <div className="min-w-0">
-              <h1 className="text-xl font-semibold text-gray-900 dark:text-white">Beam Calculator</h1>
-              <p className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block">SFD, BMD & Deflection Analysis</p>
+              <h1 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white">Beam Calculator</h1>
+              <p className="text-xs lg:text-sm text-gray-500 dark:text-gray-400 hidden sm:block font-medium">SFD, BMD & Deflection Analysis</p>
             </div>
           </div>
           
-          <div className="flex items-center space-x-2 lg:space-x-4 flex-wrap">
+          <div className="flex items-center space-x-2 lg:space-x-3 flex-wrap">
             {/* Unit System Toggle */}
             <div className="flex items-center space-x-2 order-1 lg:order-none">
               <button
                 onClick={toggleUnitSystem}
-                className="flex items-center space-x-1 lg:space-x-2 px-2 lg:px-3 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors text-sm font-medium text-gray-700 dark:text-gray-200"
+                className="flex items-center space-x-1 lg:space-x-2 px-3 lg:px-4 py-2 lg:py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-all duration-200 text-sm font-semibold text-gray-700 dark:text-gray-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95"
               >
                 <span className="hidden sm:inline">{units.name}</span>
                 <span className="sm:hidden">{units.name.split(' ')[0]}</span>
@@ -100,7 +100,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
             {/* Dark Mode Toggle */}
             <button className="order-2 lg:order-none"
               onClick={toggleDarkMode}
-              className="p-2 lg:p-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
+              className="p-2 lg:p-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95"
               title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
               {isDarkMode ? (
@@ -119,7 +119,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
               <button 
                 onClick={handleExportResults}
                 disabled={isExporting}
-                className="btn-secondary text-sm flex items-center space-x-2"
+                className="btn-secondary text-sm flex items-center space-x-2 min-w-0"
               >
                 {isExporting ? (
                   <>
@@ -140,7 +140,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
               
               <button 
                 onClick={handleSaveProject}
-                className="btn-secondary text-sm flex items-center space-x-2"
+                className="btn-secondary text-sm flex items-center space-x-2 min-w-0"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
@@ -152,7 +152,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
             {/* Mobile Action Button */}
             <button 
               onClick={handleSaveProject}
-              className="lg:hidden btn-primary text-sm flex items-center space-x-1 order-3"
+              className="lg:hidden btn-primary text-sm flex items-center space-x-1 order-3 min-w-0"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
@@ -164,7 +164,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
               <div className="flex items-center space-x-2 lg:space-x-3 order-4 lg:order-none">
                 <button 
                   onClick={handleMyProjects}
-                  className="btn-secondary text-sm flex items-center space-x-1 lg:space-x-2"
+                  className="btn-secondary text-sm flex items-center space-x-1 lg:space-x-2 min-w-0"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -173,18 +173,18 @@ const Header = ({ beamData, results, updateBeamData }) => {
                   <span className="lg:hidden">Projects</span>
                 </button>
                 
-                <div className="flex items-center space-x-2 px-2 lg:px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                  <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center">
+                <div className="flex items-center space-x-2 px-3 lg:px-4 py-2 lg:py-3 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-xl shadow-sm">
+                  <div className="w-7 h-7 bg-gradient-to-r from-primary-600 to-primary-700 rounded-full flex items-center justify-center shadow-sm">
                     <span className="text-xs font-medium text-white">
                       {user.user_metadata?.full_name?.charAt(0) || user.email?.charAt(0) || 'U'}
                     </span>
                   </div>
-                  <span className="text-sm text-gray-700 dark:text-gray-300 hidden lg:inline max-w-32 truncate">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300 hidden lg:inline max-w-32 truncate">
                     {user.user_metadata?.full_name || user.email}
                   </span>
                   <button
                     onClick={handleSignOut}
-                    className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                    className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-all duration-200 p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
                     title="Sign Out"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,7 +196,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
             ) : (
               <button 
                 onClick={() => setShowSignInModal(true)}
-                className="btn-primary text-sm flex items-center space-x-1 lg:space-x-2 order-4 lg:order-none"
+                className="btn-primary text-sm flex items-center space-x-1 lg:space-x-2 order-4 lg:order-none min-w-0"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -208,7 +208,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
             <button 
               onClick={handleExportResults}
               disabled={isExporting} 
-              className="lg:hidden btn-secondary text-sm flex items-center space-x-1 order-5"
+              className="lg:hidden btn-secondary text-sm flex items-center space-x-1 order-5 min-w-0"
             >
               {isExporting ? (
                 <>
@@ -229,7 +229,7 @@ const Header = ({ beamData, results, updateBeamData }) => {
             
             <button className="order-6 lg:order-none"
               onClick={() => setShowAboutModal(true)}
-              className="btn-secondary text-sm px-3 py-2"
+              className="btn-secondary text-sm px-3 py-2 lg:py-3 min-w-0"
             >
               <span className="hidden lg:inline">About</span>
               <svg className="w-4 h-4 lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
