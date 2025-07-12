@@ -170,9 +170,6 @@ const LoadsTab = ({ beamData, updateBeamData }) => {
               <span>Add Load</span>
             </button>
           </div>
-              Add Point Load
-            </button>
-          </div>
 
           {beamData.pointLoads.map((load, index) => {
             const displayPosition = convertValue(load.position, 'length', 'SI');

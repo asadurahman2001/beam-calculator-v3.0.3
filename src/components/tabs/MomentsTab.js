@@ -41,9 +41,6 @@ const MomentsTab = ({ beamData, updateBeamData }) => {
           <span>Add Moment</span>
         </button>
       </div>
-          Add Moment
-        </button>
-      </div>
 
       <div className="space-y-4">
         {beamData.moments.map((moment, index) => {
